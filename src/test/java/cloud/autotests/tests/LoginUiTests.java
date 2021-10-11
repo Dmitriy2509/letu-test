@@ -3,6 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.config.App;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ import static io.qameta.allure.Allure.step;
 public class LoginUiTests extends TestBase {
 
     @Test
+    @Disabled
     @Description("This test verifies a registered user can log in.")
     @DisplayName("Successful login")
     void loginTest() {
@@ -42,7 +44,7 @@ public class LoginUiTests extends TestBase {
 
     @Test
     @Description("This test verifies a registered user can not log in with valid email and wrong password.")
-    @DisplayName(" Login with wrong password")
+    @DisplayName("Login with wrong password")
     void loginWithWrongPasswordTest() {
 
         step("Open the 'login' page", () -> {
