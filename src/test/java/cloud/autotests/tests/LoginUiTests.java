@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -34,11 +36,11 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Click on the 'Войти' button", () -> {
-            $(By.xpath("//button[text()='Войти']")).click();
+            $(By.xpath("//button[text()='Войти']")).shouldBe(visible, Duration.ofMillis(50000)).click();
         });
 
         step("Check success authorization", () -> {
-            $(By.xpath("//span[text()='Личный кабинет']")).shouldBe(visible);
+            $(By.xpath("//span[text()='Личный кабинет']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -60,11 +62,11 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Click on the 'Войти' button", () -> {
-            $(By.xpath("//button[text()='Войти']")).click();
+            $(By.xpath("//button[text()='Войти']")).shouldBe(visible, Duration.ofMillis(50000)).click();
         });
 
         step("The 'Пожалуйста, проверьте правильность логина и пароля.' message is displayed", () -> {
-            $(By.xpath("//div[text()='Пожалуйста, проверьте правильность логина и пароля.']")).shouldBe(visible);
+            $(By.xpath("//div[text()='Пожалуйста, проверьте правильность логина и пароля.']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -86,11 +88,11 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Click on the 'Войти' button", () -> {
-            $(By.xpath("//button[text()='Войти']")).click();
+            $(By.xpath("//button[text()='Войти']")).shouldBe(visible, Duration.ofMillis(50000)).click();
         });
 
         step("The 'Пожалуйста, проверьте правильность логина и пароля.' message is displayed", () -> {
-            $(By.xpath("//div[text()='Неверный формат email.']")).shouldBe(visible);
+            $(By.xpath("//div[text()='Неверный формат email.']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -109,7 +111,7 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Check the 'ПОДПИСАТЬСЯ НА РАССЫЛКУ LETU.UA' field is displayed", () -> {
-            $(By.xpath("//*[@id='subscribeFormEmail']")).shouldBe(visible);
+            $(By.xpath("//*[@id='subscribeFormEmail']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -123,7 +125,7 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Check the search field is displayed on the page", () -> {
-            $(By.xpath("//input[@type='search']")).shouldBe(visible);
+            $(By.xpath("//input[@type='search']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -137,7 +139,7 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Check the phone number is displayed on the page", () -> {
-            $(By.xpath("//header//*[text()='0-800-50-50-07']")).shouldBe(visible);
+            $(By.xpath("//header//*[text()='0-800-50-50-07']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -151,7 +153,7 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Check language panel is displayed on the header", () -> {
-            $(By.xpath("//ul[@class='language-selector-tabs']")).shouldBe(visible);
+            $(By.xpath("//ul[@class='language-selector-tabs']")).shouldBe(visible ,Duration.ofMillis(50000));
         });
     }
 
@@ -170,12 +172,12 @@ public class LoginUiTests extends TestBase {
         });
 
         step("Click on the icon under the 'Способы оплат' text", ()->{
-            $(By.xpath("//*[contains(@class,'LETUR-FooterPaymentLink')]//a[@href='/ru/payments']")).click();
+            $(By.xpath("//*[contains(@class,'LETUR-FooterPaymentLink')]//a[@href='/ru/payments']"))
+                    .shouldBe(visible, Duration.ofMillis(50000)).click();
         });
 
         step("Check information about payment is displayed on the page after clicking the icon", () -> {
-            $(By.xpath("//div[@class='custom-info-page']//*[text()='Способы оплаты']")).shouldBe(visible);
+            $(By.xpath("//div[@class='custom-info-page']//*[text()='Способы оплаты']")).shouldBe(visible, Duration.ofMillis(50000));
         });
-        Selenide.sleep(3000);
     }
 }
