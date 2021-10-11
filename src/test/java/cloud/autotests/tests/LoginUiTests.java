@@ -15,31 +15,31 @@ import static io.qameta.allure.Allure.step;
 
 public class LoginUiTests extends TestBase {
 
-//    @Test
-//    @Description("This test verifies a registered user can log in.")
-//    @DisplayName("Successful login")
-//    void loginTest() {
-//
-//        step("Open the 'login' page", () -> {
-//            open("/login");
-//        });
-//
-//        step("Set the 'freportsandoffers@gmail.com' email onto the 'Email' field", () -> {
-//            $(By.xpath("//input[@type='email']")).setValue(App.config.userLogin());
-//        });
-//
-//        step("Set the 'qwerty' password onto the 'Пароль' field", () -> {
-//            $(By.xpath("//input[@type='password']")).setValue(App.config.userPassword());
-//        });
-//
-//        step("Click on the 'Войти' button", () -> {
-//            $(By.xpath("//button[text()='Войти']")).shouldBe(visible, Duration.ofMillis(50000)).click();
-//        });
-//
-//        step("Check success authorization", () -> {
-//            $(By.xpath("//span[text()='Личный кабинет']")).shouldBe(visible, Duration.ofMillis(50000));
-//        });
-//    }
+    @Test
+    @Description("This test verifies a registered user can log in.")
+    @DisplayName("Successful login")
+    void loginTest() {
+
+        step("Open the 'login' page", () -> {
+            open("/login");
+        });
+
+        step("Set the 'freportsandoffers@gmail.com' email onto the 'Email' field", () -> {
+            $(By.xpath("//input[@type='email']")).setValue(App.config.userLogin());
+        });
+
+        step("Set the 'qwerty' password onto the 'Пароль' field", () -> {
+            $(By.xpath("//input[@type='password']")).setValue(App.config.userPassword());
+        });
+
+        step("Click on the 'Войти' button", () -> {
+            $(By.xpath("//button[text()='Войти']")).shouldBe(visible, Duration.ofMillis(50000)).click();
+        });
+
+        step("Check success authorization", () -> {
+            $(By.xpath("//span[text()='Личный кабинет']")).shouldBe(visible, Duration.ofMillis(50000));
+        });
+    }
 
     @Test
     @Description("This test verifies a registered user can not log in with valid email and wrong password.")
