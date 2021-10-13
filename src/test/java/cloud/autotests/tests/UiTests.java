@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class LoginUiTests extends TestBase {
+public class UiTests extends TestBase {
 
     @Test
     @Description("This test verifies a registered user can log in.")
