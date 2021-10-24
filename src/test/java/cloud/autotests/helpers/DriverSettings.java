@@ -9,6 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.String.format;
+
 public class DriverSettings {
 
     public static void configure() {
@@ -36,7 +38,17 @@ public class DriverSettings {
         if (Project.isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = Project.config.remoteDriverUrl();
+
+//            Configuration.remote = Project.config.remoteDriverUrl();
+
+            String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+            Configuration.remote = format("https://%s:%s@%s", Project.config.login(), Project.config.password(), url);
+
+//            String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+//            Configuration.remote = format("https://%s:%s@%s", credentialConfig.login(), credentialConfig.password(), url);
+
+//            String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+//            Configuration.remote = format("https://%s:%s@%s", credentialConfig.login(), credentialConfig.password(), url);
         }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);

@@ -1,8 +1,8 @@
 # Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
+<a target="_blank" href="https://allure.autotests.cloud/project/541/test-cases/5283?treeId=1074</a> (ask admin@qa.guru for access)
 
 # Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+<a target="_blank" href="https://jenkins.autotests.cloud/job/letu-tests/</a>
 
 
 # USAGE examples
@@ -25,19 +25,20 @@ gradle clean test
 
 Run tests with not filled remote.properties:
 ```bash
-gradle clean -DremoteDriverUrl=https://%s:%s@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
+ gradle clean -DremoteDriverUrl=https://%s:%s@%s -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
+
 ```
 
 Serve report:
 ```bash
-allure serve build/allure-results
+./gradlew allureServe
 ```
 
 
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/demowebshop
+###### For further development there are some example tests in src/test/java/cloud.autotests/tests/UiTests
 * remove @Disabled("...") annotation to run tests
 ```bash
-gradle clean demowebshop
+gradle clean -Dtest.single=UiTests test
 ```
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
