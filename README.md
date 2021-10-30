@@ -1,45 +1,34 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/541/test-cases/5283?treeId=1074</a> (ask admin@qa.guru for access)
+# Автотесты для сайта letu.ua
+![alt text](images/mainPage.png)
+		Java		Gradle			Allure Report	Allure TO	Jenkins	Jira
+# Использованы технологии:
+| GitHub | IntelliJ IDEA | Java  | Junit5  |  Gradle | Selenide  | Selenoid  | Jenkins |Allure Report  |  Allure TestOps | Jira  |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ![alt text](images/GitHub.svg)  |  ![alt text](images/IntelijIdea.svg) |  ![alt text](images/Java.svg) | ![alt text](images/Junit5.svg)  | ![alt text](images/Gradle.svg)  | ![alt text](images/Selenide.svg)  |  ![alt text](images/Selenoid.svg) | ![alt text](images/Jenkins.svg)  | ![alt text](images/AllureReport.svg)  | ![alt text](images/AllureTestOps.svg)  |  ![alt text](images/Jira.svg) |
 
-# Jenkins job
+# Запуск тестов с помощью CI Jenkins
 <a target="_blank" href="https://jenkins.autotests.cloud/job/letu-tests/</a>
+![alt text](images/JenkinsCI.png)
 
+# Отчет генерируется в Allure
+![alt text](images/allureReport_1.png)
+![alt text](images/allureReport_2.png)
 
-# USAGE examples
+# Видео теста "Successful login"
+![alt text](images/loginVideo.gif)
 
-### For run remote tests need fill remote.properties or to pass value:
-
-* browser (default chrome)
-* browserVersion (default 89.0)
-* browserSize (default 1920x1080)
-* browserMobileView (mobile device name, for example iPhone X)
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
-
-
-Run tests with filled remote.properties:
+Команда для запуска тестов, когда файл local.properties заполнен параметрами:
 ```bash
 gradle clean test
 ```
-
-Run tests with not filled remote.properties:
+Команда для запуска тестов, когда файл local.properties не заполнен параметрами или с другими парамтрами "remoteDriverUrl", "videoStorage", "threads":
+- DremoteDriverUrl в этом параметре необходимо указать логин (вместо %s), пароль (вместо %s2) и адрес удаленного сервера (в данном случае "selenoid.autotests.cloud/wd/hub/")
+- DvideoStorage в этом параметре необходимо указать место для сохранения видео (в данном случае "https://selenoid.autotests.cloud/video/")
+- Dthreads в этом параметре необходимо указать колличество потоков (в данном случае 1 поток)
 ```bash
- gradle clean -DremoteDriverUrl=https://%s:%s@%s -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
-
+ gradle clean -DremoteDriverUrl=https://%s:%s2@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
 ```
-
-Serve report:
+Генерация отчета:
 ```bash
-./gradlew allureServe
+allure serve build/allure-results
 ```
-
-
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/UiTests
-* remove @Disabled("...") annotation to run tests
-```bash
-gradle clean -Dtest.single=UiTests test
-```
-
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>

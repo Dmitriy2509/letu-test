@@ -19,6 +19,4 @@ public interface ProjectConfig extends Config {
     String browserMobileView();
     String remoteDriverUrl();
     String videoStorage();
-    String login();
-    String password();
 }
