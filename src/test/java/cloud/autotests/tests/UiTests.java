@@ -150,7 +150,7 @@ public class UiTests extends TestBase {
         });
 
         step("Check language panel is displayed on the header", () -> {
-            $(By.xpath("//ul[@class='language-selector-tabs']")).shouldBe(visible ,Duration.ofMillis(50000));
+            $(By.xpath("//ul[@class='language-selector-tabs']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
 
@@ -168,7 +168,7 @@ public class UiTests extends TestBase {
 
         });
 
-        step("Click on the icon under the 'Способы оплат' text", ()->{
+        step("Click on the icon under the 'Способы оплат' text", () -> {
             $(By.xpath("//*[contains(@class,'LETUR-FooterPaymentLink')]//a[@href='/ru/payments']"))
                     .shouldBe(visible, Duration.ofMillis(50000)).click();
         });
@@ -177,4 +177,5 @@ public class UiTests extends TestBase {
             $(By.xpath("//div[@class='custom-info-page']//*[text()='Способы оплаты']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
+
 }
