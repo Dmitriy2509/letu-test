@@ -177,5 +177,4 @@ public class UiTests extends TestBase {
             $(By.xpath("//div[@class='custom-info-page']//*[text()='Способы оплаты']")).shouldBe(visible, Duration.ofMillis(50000));
         });
     }
-
 }

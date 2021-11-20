@@ -40,15 +40,6 @@ public class DriverSettings {
             capabilities.setCapability("enableVideo", true);
 
             Configuration.remote = Project.config.remoteDriverUrl();
-
-//            String url = System.getProperty("remoteDriverUrl", "selenoid.autotests.cloud/wd/hub/");
-//            Configuration.remote = format("https://%s:%s@%s", Project.config.login(), Project.config.password(), url);
-
-//            String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
-//            Configuration.remote = format("https://%s:%s@%s", credentialConfig.login(), credentialConfig.password(), url);
-
-//            String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
-//            Configuration.remote = format("https://%s:%s@%s", credentialConfig.login(), credentialConfig.password(), url);
         }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
