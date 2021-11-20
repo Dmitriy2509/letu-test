@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static cloud.autotests.config.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -16,6 +17,7 @@ public class ApiTests extends TestBase {
     public void addPhoneCoverToCardTest() {
 
         Response addPhoneCoverToCard = given()
+                .filter(customLogFilter().withCustomTemplates())
                 .cookie(authCookie)
                 .body("product_attribute_80_2_37=112&" +
                         "product_attribute_80_1_38=114&" +
@@ -36,6 +38,7 @@ public class ApiTests extends TestBase {
     public void subscribeWithEmailTest() {
         Response subscribeWithEmail =
                 given()
+                        .filter(customLogFilter().withCustomTemplates())
                         .cookie(authCookie)
                         .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                         .body("email=asd%40gmail.com")
@@ -55,6 +58,7 @@ public class ApiTests extends TestBase {
     @Test
     public void emailFriendAboutItemTest() {
         Response emailFriendAboutItem = given()
+                .filter(customLogFilter().withCustomTemplates())
                 .cookie(authCookie)
                 .body("FriendEmail=wq%40gmail.com&" +
                         "YourEmailAddress=qw%40gmail.com&" +
